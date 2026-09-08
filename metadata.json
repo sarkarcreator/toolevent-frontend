@@ -1,0 +1,6 @@
+{
+  "name": "Toolbox.Events",
+  "description": "Free tools, calculators, AI event planners, budgets, profit calculators and professional event templates for USA, UAE, and UK events.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

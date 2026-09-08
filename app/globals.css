@@ -1,0 +1,86 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --canvas-bg: #F5F2ED;
+    --canvas-text: #121212;
+    --accent-vermilion: #D44D26;
+    --accent-cream: #EAE6DF;
+    --accent-dark: #121212;
+  }
+
+  body {
+    background-color: #F5F2ED;
+    color: #121212;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  }
+
+  h1, h2, h3, .font-display {
+    font-family: "Georgia", "Playfair Display", "Times New Roman", serif;
+  }
+}
+
+.serif {
+  font-family: "Georgia", "Playfair Display", "Times New Roman", serif;
+}
+
+.display-text {
+  font-size: clamp(2.5rem, 6vw, 5.5rem);
+  line-height: 0.95;
+  letter-spacing: -0.03em;
+}
+
+.outline-text {
+  -webkit-text-stroke: 1px #121212;
+  color: transparent;
+}
+
+.outline-text-light {
+  -webkit-text-stroke: 1px #F5F2ED;
+  color: transparent;
+}
+
+.card-skew {
+  transform: rotate(-1.5deg);
+}
+
+.card-skew-alt {
+  transform: rotate(1.5deg);
+}
+
+.editorial-tag {
+  font-size: 9px;
+  text-transform: uppercase;
+  font-weight: 900;
+  letter-spacing: 0.25em;
+}
+
+.btn-artistic {
+  background-color: #121212;
+  color: #F5F2ED;
+  font-size: 11px;
+  text-transform: uppercase;
+  font-weight: 900;
+  letter-spacing: 0.2em;
+  transition: all 0.2s ease;
+}
+
+.btn-artistic:hover {
+  background-color: #D44D26;
+  color: #FFFFFF;
+}
+
+.btn-accent {
+  background-color: #D44D26;
+  color: #FFFFFF;
+  font-size: 11px;
+  text-transform: uppercase;
+  font-weight: 900;
+  letter-spacing: 0.2em;
+  transition: all 0.2s ease;
+}
+
+.btn-accent:hover {
+  background-color: #121212;
+  color: #F5F2ED;
+}
