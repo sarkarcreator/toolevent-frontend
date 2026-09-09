@@ -27,6 +27,11 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: 'Toolbox.Events' }],
   metadataBase: new URL('https://toolbox.events'),
+  icons: {
+    icon: '/logo.png',
+    shortcut: '/logo.png',
+    apple: '/logo.png',
+  },
   openGraph: {
     title: 'Toolbox.Events — Free Tools for Planning Better Events',
     description:
@@ -35,20 +40,18 @@ export const metadata: Metadata = {
     siteName: 'Toolbox.Events',
     locale: 'en_US',
     type: 'website',
+    images: [{ url: '/logo.png', width: 256, height: 256, alt: 'Toolbox.Events logo' }],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Toolbox.Events — Free Tools for Planning Better Events',
     description:
       'Free event calculators, AI planning tools, budgets, profit calculators and professional event templates for the USA, UAE and UK.',
+    images: ['/logo.png'],
   },
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className="scroll-smooth">
       <body className="min-h-screen flex flex-col bg-[#F7F8FA] text-[#17191F] antialiased" suppressHydrationWarning>
