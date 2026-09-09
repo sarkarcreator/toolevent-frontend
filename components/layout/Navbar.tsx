@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
+import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useMarket } from './MarketContext';
@@ -30,7 +31,10 @@ export function Navbar() {
     <header className="sticky top-0 z-50 w-full border-b border-[#e7e9ee] bg-[#f7f8fa]/90 backdrop-blur-xl">
       <div className="mx-auto max-w-[1400px] px-4 sm:px-6 lg:px-8">
         <div className="flex h-[72px] items-center justify-between gap-4">
-          <Link href="/" onClick={closeMenus} className="group flex shrink-0 items-center gap-2.5"><span className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#17191f] text-lg font-black text-white shadow-sm transition-transform duration-200 group-hover:scale-105">T</span><span className="text-[19px] font-extrabold tracking-[-0.045em] text-[#17191f] sm:text-[21px]">Toolbox<span className="text-[#ff5a36]">.Events</span></span></Link>
+          <Link href="/" onClick={closeMenus} className="group flex shrink-0 items-center gap-2.5">
+            <Image src="/logo.png" alt="Toolbox.Events" width={44} height={44} className="h-11 w-11 rounded-xl object-cover shadow-sm transition-transform duration-200 group-hover:scale-105" priority />
+            <span className="text-[19px] font-extrabold tracking-[-0.045em] text-[#17191f] sm:text-[21px]">Toolbox<span className="text-[#ff5a36]">.Events</span></span>
+          </Link>
 
           <nav className="hidden items-center gap-1 rounded-full border border-[#e7e9ee] bg-white/80 p-1 md:flex">{navLinks.map((link) => { const Icon = link.icon; const active = pathname === link.href || pathname.startsWith(`${link.href}/`); return <Link key={link.name} href={link.href} className={`flex items-center gap-2 rounded-full px-4 py-2 text-sm font-semibold transition-all ${active ? 'bg-[#17191f] text-white shadow-sm' : 'text-[#667085] hover:bg-[#f1f3f6] hover:text-[#17191f]'}`}><Icon className="h-4 w-4" />{link.name}{link.badge && <span className="rounded-full bg-[#ff5a36] px-1.5 py-0.5 text-[9px] font-bold text-white">{link.badge}</span>}</Link>; })}</nav>
 
