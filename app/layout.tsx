@@ -51,11 +51,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="scroll-smooth">
-      <body className="min-h-screen flex flex-col bg-[#F5F2ED] text-[#121212] antialiased selection:bg-[#D44D26] selection:text-white" suppressHydrationWarning>
+      <body className="min-h-screen flex flex-col bg-[#F7F8FA] text-[#17191F] antialiased" suppressHydrationWarning>
         <MarketProvider>
           <AuthProvider>
             <Navbar />
-            <main className="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6">{children}</main>
+            <main className="flex-grow w-full max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8">{children}</main>
             <Footer />
             <AuthModal />
           </AuthProvider>
