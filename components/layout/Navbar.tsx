@@ -32,7 +32,7 @@ export function Navbar() {
       <div className="mx-auto max-w-[1400px] px-4 sm:px-6 lg:px-8">
         <div className="flex h-[72px] items-center justify-between gap-4">
           <Link href="/" onClick={closeMenus} className="group flex shrink-0 items-center gap-2.5">
-            <Image src="/logo.png" alt="Toolbox.Events" width={44} height={44} className="h-11 w-11 rounded-xl object-cover shadow-sm transition-transform duration-200 group-hover:scale-105" priority />
+            <Image src="/logo-mark-96.png" alt="Toolbox.Events" width={44} height={44} className="h-11 w-11 shrink-0 object-contain transition-transform duration-200 group-hover:scale-105" priority />
             <span className="text-[19px] font-extrabold tracking-[-0.045em] text-[#17191f] sm:text-[21px]">Toolbox<span className="text-[#ff5a36]">.Events</span></span>
           </Link>
 
