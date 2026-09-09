@@ -1,9 +1,11 @@
-import type {NextConfig} from 'next';
+import type { NextConfig } from 'next';
 
 const nextConfig: NextConfig = {
   reactStrictMode: true,
   async rewrites() {
-    const backendUrl = process.env.BACKEND_API_URL || 'http://localhost:3001';
+    // Keep the production proxy working even when Vercel's environment variable
+    // is missing from a deployment. The env var still takes precedence.
+    const backendUrl = process.env.BACKEND_API_URL || 'https://api.toolbox.events';
     return [
       {
         source: '/api/:path*',
@@ -17,22 +19,19 @@ const nextConfig: NextConfig = {
   typescript: {
     ignoreBuildErrors: false,
   },
-  // Allow access to remote image placeholder.
   images: {
     remotePatterns: [
       {
         protocol: 'https',
         hostname: 'picsum.photos',
         port: '',
-        pathname: '/**', // This allows any path under the hostname
+        pathname: '/**',
       },
     ],
   },
   output: 'standalone',
   transpilePackages: ['motion'],
-  webpack: (config, {dev}) => {
-    // HMR is disabled in AI Studio via DISABLE_HMR env var.
-    // Do not modifyâfile watching is disabled to prevent flickering during agent edits.
+  webpack: (config, { dev }) => {
     if (dev && process.env.DISABLE_HMR === 'true') {
       config.watchOptions = {
         ignored: /.*/,
