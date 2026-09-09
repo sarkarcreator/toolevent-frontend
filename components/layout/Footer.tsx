@@ -1,11 +1,12 @@
 'use client';
 
 import React from 'react';
+import Image from 'next/image';
 import Link from 'next/link';
 import { useMarket } from './MarketContext';
 import { SUPPORTED_MARKETS } from '@/lib/market';
 import { SupportedCountry } from '@/lib/types';
-import { Globe2, ArrowUpRight, Sparkles, BookOpen } from 'lucide-react';
+import { Globe2, ArrowUpRight, Sparkles, BookOpen, Mail } from 'lucide-react';
 
 export function Footer() {
   const { country, setCountry } = useMarket();
@@ -44,11 +45,12 @@ export function Footer() {
           <div className="relative grid gap-12 lg:grid-cols-[1.4fr_1fr_1fr_1fr] lg:gap-10">
             <div className="max-w-md">
               <Link href="/" className="group inline-flex items-center gap-3">
-                <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#ff5a36] text-lg font-black shadow-lg shadow-[#ff5a36]/20">T</span>
+                <Image src="/logo.png" alt="Toolbox.Events" width={52} height={52} className="h-12 w-12 rounded-2xl object-cover shadow-lg shadow-[#ff5a36]/10 transition-transform group-hover:scale-105" />
                 <span className="text-xl font-bold tracking-[-0.04em]">Toolbox<span className="text-[#ff7353]">.Events</span></span>
               </Link>
               <p className="mt-6 text-base leading-7 text-white/60">A practical event operating system for planning smarter, budgeting clearly, and making confident decisions.</p>
               <Link href="/ai-planner" className="mt-7 inline-flex items-center gap-2 rounded-full bg-white px-5 py-3 text-sm font-bold text-[#15171b] transition-transform hover:-translate-y-0.5"><Sparkles className="h-4 w-4" />Start with AI<ArrowUpRight className="h-4 w-4" /></Link>
+              <a href="mailto:care@toolbox.events" className="mt-3 inline-flex items-center gap-2 text-sm font-semibold text-white/65 hover:text-white"><Mail className="h-4 w-4" />care@toolbox.events</a>
               <div className="mt-8 rounded-2xl border border-white/10 bg-white/[0.04] p-4">
                 <div className="mb-3 flex items-center gap-2 text-xs font-semibold text-white/50"><Globe2 className="h-4 w-4" />Your planning market</div>
                 <div className="flex flex-wrap gap-2">
