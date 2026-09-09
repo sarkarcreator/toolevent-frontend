@@ -2,85 +2,76 @@
 
 @layer base {
   :root {
-    --canvas-bg: #F5F2ED;
-    --canvas-text: #121212;
-    --accent-vermilion: #D44D26;
-    --accent-cream: #EAE6DF;
-    --accent-dark: #121212;
+    --background: #f7f8fa;
+    --foreground: #17191f;
+    --surface: #ffffff;
+    --muted: #667085;
+    --line: #e7e9ee;
+    --accent: #ff5a36;
+    --accent-soft: #fff0eb;
+    --blue: #3867ff;
+    --blue-soft: #eef2ff;
+    --canvas-bg: #f7f8fa;
+    --canvas-text: #17191f;
+    --accent-vermilion: #ff5a36;
+    --accent-cream: #f1f3f6;
+    --accent-dark: #17191f;
   }
+
+  * { box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
 
   body {
-    background-color: #F5F2ED;
-    color: #121212;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    margin: 0;
+    background: var(--background);
+    color: var(--foreground);
+    font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-feature-settings: "cv11", "ss01";
   }
 
-  h1, h2, h3, .font-display {
-    font-family: "Georgia", "Playfair Display", "Times New Roman", serif;
-  }
+  h1, h2, h3, h4, h5, h6 { letter-spacing: -0.035em; }
+  button, input, textarea, select { font: inherit; }
 }
 
-.serif {
-  font-family: "Georgia", "Playfair Display", "Times New Roman", serif;
-}
+.serif,
+.font-display { font-family: Inter, ui-sans-serif, system-ui, sans-serif; }
 
 .display-text {
-  font-size: clamp(2.5rem, 6vw, 5.5rem);
-  line-height: 0.95;
-  letter-spacing: -0.03em;
+  font-size: clamp(2.75rem, 7vw, 6.75rem);
+  line-height: 0.94;
+  letter-spacing: -0.06em;
 }
 
-.outline-text {
-  -webkit-text-stroke: 1px #121212;
-  color: transparent;
-}
-
-.outline-text-light {
-  -webkit-text-stroke: 1px #F5F2ED;
-  color: transparent;
-}
-
-.card-skew {
-  transform: rotate(-1.5deg);
-}
-
-.card-skew-alt {
-  transform: rotate(1.5deg);
-}
+.outline-text,
+.outline-text-light { -webkit-text-stroke: 0; color: inherit; }
+.card-skew,
+.card-skew-alt { transform: none; }
 
 .editorial-tag {
-  font-size: 9px;
-  text-transform: uppercase;
-  font-weight: 900;
-  letter-spacing: 0.25em;
+  font-size: 0.72rem;
+  text-transform: none;
+  font-weight: 700;
+  letter-spacing: 0.02em;
 }
 
-.btn-artistic {
-  background-color: #121212;
-  color: #F5F2ED;
-  font-size: 11px;
-  text-transform: uppercase;
-  font-weight: 900;
-  letter-spacing: 0.2em;
-  transition: all 0.2s ease;
-}
-
-.btn-artistic:hover {
-  background-color: #D44D26;
-  color: #FFFFFF;
-}
-
+.btn-artistic,
 .btn-accent {
-  background-color: #D44D26;
-  color: #FFFFFF;
-  font-size: 11px;
-  text-transform: uppercase;
-  font-weight: 900;
-  letter-spacing: 0.2em;
-  transition: all 0.2s ease;
+  border-radius: 9999px;
+  font-size: 0.875rem;
+  text-transform: none;
+  font-weight: 700;
+  letter-spacing: 0;
+  transition: transform .2s ease, box-shadow .2s ease, background-color .2s ease;
 }
 
-.btn-accent:hover {
-  background-color: #121212;
-  color: #F5F2ED;
+.btn-artistic { background: #17191f; color: #fff; }
+.btn-artistic:hover { background: #2b2f38; transform: translateY(-1px); box-shadow: 0 10px 24px rgba(23,25,31,.12); }
+.btn-accent { background: var(--accent); color: #fff; }
+.btn-accent:hover { background: #ed4b29; transform: translateY(-1px); box-shadow: 0 10px 24px rgba(255,90,54,.22); }
+
+::selection { background: #ffd9cf; color: #17191f; }
+
+@media (max-width: 640px) {
+  .display-text { font-size: clamp(2.5rem, 13vw, 4.25rem); }
 }
