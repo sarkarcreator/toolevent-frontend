@@ -45,7 +45,7 @@ export function Footer() {
           <div className="relative grid gap-12 lg:grid-cols-[1.4fr_1fr_1fr_1fr] lg:gap-10">
             <div className="max-w-md">
               <Link href="/" className="group inline-flex items-center gap-3">
-                <Image src="/logo.png" alt="Toolbox.Events" width={52} height={52} className="h-12 w-12 rounded-2xl object-cover shadow-lg shadow-[#ff5a36]/10 transition-transform group-hover:scale-105" />
+                <Image src="/logo-mark-96.png" alt="Toolbox.Events" width={48} height={48} className="h-12 w-12 shrink-0 object-contain transition-transform group-hover:scale-105" priority />
                 <span className="text-xl font-bold tracking-[-0.04em]">Toolbox<span className="text-[#ff7353]">.Events</span></span>
               </Link>
               <p className="mt-6 text-base leading-7 text-white/60">A practical event operating system for planning smarter, budgeting clearly, and making confident decisions.</p>
