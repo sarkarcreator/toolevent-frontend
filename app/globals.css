@@ -58,4 +58,6 @@
   .display-text { font-size: clamp(2.5rem, 13vw, 4.25rem); }
   .mobile-home-glow { display: none; }
   .mobile-home-defer { content-visibility: auto; contain-intrinsic-size: auto 700px; }
+  .site-navbar { backdrop-filter: none; -webkit-backdrop-filter: none; background-color: #f7f8fa !important; }
+  .site-footer { content-visibility: auto; contain-intrinsic-size: auto 720px; }
 }
