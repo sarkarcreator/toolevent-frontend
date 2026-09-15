@@ -1,8 +1,5 @@
-'use client';
-
 import Link from 'next/link';
-import { useMarket } from '@/components/layout/MarketContext';
-import { useAuth } from '@/components/layout/AuthContext';
+import { HomeAccountCta, HomeMarketInfo } from '@/components/home/HomeClientBits';
 import {
   ArrowRight,
   Calculator,
@@ -33,9 +30,6 @@ const guides = [
 ];
 
 export default function HomePage() {
-  const { country, currency } = useMarket();
-  const { user, openAuthModal } = useAuth();
-
   return (
     <div className="space-y-20 pb-16 sm:space-y-28">
       <section className="relative overflow-hidden rounded-[32px] bg-[#17191f] px-6 py-12 text-white sm:px-10 sm:py-16 lg:px-16 lg:py-20">
@@ -63,7 +57,7 @@ export default function HomePage() {
               </Link>
             </div>
             <div className="mt-8 flex flex-wrap gap-x-6 gap-y-2 text-sm text-white/50">
-              <span>✓ Free to use</span><span>✓ No spreadsheet setup</span><span>✓ {country} · {currency}</span>
+              <span>✓ Free to use</span><span>✓ No spreadsheet setup</span><HomeMarketInfo />
             </div>
           </div>
 
@@ -134,7 +128,7 @@ export default function HomePage() {
           <div className="mt-7 space-y-4">
             {['Budget before you commit', 'Price with confidence', 'Know your staffing needs', 'Keep every task visible'].map((item) => <div key={item} className="flex items-center gap-3 text-sm font-semibold"><CheckCircle2 className="h-5 w-5 text-[#18a66a]" />{item}</div>)}
           </div>
-          {!user && <button onClick={() => openAuthModal('register')} className="mt-7 w-full rounded-full border border-[#e7e9ee] px-5 py-3 text-sm font-bold transition hover:border-[#17191f]">Create a free account</button>}
+          <HomeAccountCta />
         </div>
       </section>
 
