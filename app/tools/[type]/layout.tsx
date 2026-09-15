@@ -29,10 +29,6 @@ export async function generateMetadata({ params }: { params: Promise<{ type: str
   };
 }
 
-export async function generateMetadataWithSchema({ params }: { params: Promise<{ type: string }> }): Promise<Metadata> {
-  return generateMetadata({ params });
-}
-
 export default async function ToolTypeLayout({ children, params }: { children: React.ReactNode; params: Promise<{ type: string }> }) {
   const { type } = await params;
   const seo = toolSeo[type];
