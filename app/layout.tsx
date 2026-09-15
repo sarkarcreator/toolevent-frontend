@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Script from 'next/script';
 import './globals.css';
 import { MarketProvider } from '@/components/layout/MarketContext';
 import { AuthProvider } from '@/components/layout/AuthContext';
@@ -9,6 +10,7 @@ import { AuthModal } from '@/components/layout/AuthModal';
 const siteUrl = 'https://toolbox.events';
 const siteTitle = 'Toolbox.Events — Free Event Planning Tools & AI Planner';
 const siteDescription = 'Plan better events with free event budget, ticket pricing, profit, break-even, wedding, catering, staffing and guest calculators plus an AI event planner.';
+const googleAnalyticsId = 'G-GC8RRRRKG8';
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -34,6 +36,15 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className="scroll-smooth">
       <body className="min-h-screen flex flex-col bg-[#F7F8FA] text-[#17191F] antialiased" suppressHydrationWarning>
+        <Script src={`https://www.googletagmanager.com/gtag/js?id=${googleAnalyticsId}`} strategy="afterInteractive" />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){window.dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${googleAnalyticsId}');
+          `}
+        </Script>
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }} />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }} />
         <MarketProvider>
