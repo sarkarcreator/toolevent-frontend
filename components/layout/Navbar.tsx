@@ -22,6 +22,7 @@ export function Navbar() {
     { name: 'Tools', href: '/tools', icon: Calculator },
     { name: 'AI Planner', href: '/ai-planner', icon: Sparkles, badge: 'AI' },
     { name: 'Templates', href: '/templates', icon: FileSpreadsheet },
+    { name: 'Resources', href: '/resources', icon: BookOpen },
     { name: 'Blog', href: '/blog', icon: BookOpen },
   ];
 
