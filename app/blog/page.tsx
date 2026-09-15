@@ -19,6 +19,13 @@ export const metadata: Metadata = {
 
 const blogSchema = { '@context': 'https://schema.org', '@type': 'Blog', name: 'Toolbox.Events Journal', url: `${siteUrl}/blog`, description: 'Practical guides for event budgets, ticket pricing, weddings, ROI and event operations.', publisher: { '@type': 'Organization', name: 'Toolbox.Events', url: siteUrl } };
 
+const toolLinks = [
+  { href: '/tools/budget-calculator', label: 'Event Budget Calculator', text: 'Build an event budget with the free calculator' },
+  { href: '/tools/ticket-pricing', label: 'Ticket Pricing Calculator', text: 'Estimate a profitable ticket price' },
+  { href: '/tools/break-even', label: 'Event Break-Even Calculator', text: 'Find the attendance or sales point where costs are covered' },
+  { href: '/tools/event-roi', label: 'Event ROI Calculator', text: 'Measure event return and business value' },
+];
+
 export default function BlogPage() {
   return (
     <div className="space-y-10 pb-10">
@@ -41,6 +48,21 @@ export default function BlogPage() {
           </article>
         ))}
       </div>
+      <section className="rounded-[26px] border border-[#e7e9ee] bg-white p-7 sm:p-9">
+        <div className="mb-6">
+          <p className="text-xs font-bold uppercase tracking-[0.14em] text-[#ff5a36]">Free planning tools</p>
+          <h2 className="mt-1 text-2xl font-bold tracking-[-0.04em]">Put the guidance into practice.</h2>
+          <p className="mt-2 max-w-2xl text-sm leading-6 text-[#667085]">Use the calculators alongside the guides to turn planning assumptions into numbers you can work with.</p>
+        </div>
+        <div className="grid gap-3 sm:grid-cols-2">
+          {toolLinks.map((tool) => (
+            <Link key={tool.href} href={tool.href} className="group rounded-2xl border border-[#e7e9ee] p-4 transition hover:border-[#ffb7a8] hover:bg-[#fffaf8]">
+              <span className="flex items-center justify-between gap-3 text-sm font-bold text-[#17191f] group-hover:text-[#d94625]">{tool.label}<ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" /></span>
+              <span className="mt-1 block text-xs leading-5 text-[#667085]">{tool.text}</span>
+            </Link>
+          ))}
+        </div>
+      </section>
       <section className="rounded-[26px] border border-[#e7e9ee] bg-white p-7 sm:p-9">
         <div className="flex flex-col gap-5 sm:flex-row sm:items-center sm:justify-between"><div><p className="text-xs font-bold uppercase tracking-[0.14em] text-[#ff5a36]">Plan with the articles</p><h2 className="mt-1 text-2xl font-bold tracking-[-0.04em]">Turn advice into an actual event plan.</h2></div><Link href="/ai-planner" className="inline-flex items-center justify-center gap-2 rounded-full bg-[#17191f] px-5 py-3 text-sm font-bold text-white hover:bg-[#ff5a36]"><Sparkles className="h-4 w-4" />Start with AI</Link></div>
       </section>
