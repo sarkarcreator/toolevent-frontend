@@ -30,6 +30,10 @@ const publicRoutes = [
   '/blog/how-much-should-i-charge-for-event-tickets',
   '/blog/dubai-wedding-budget-guide',
   '/blog/how-to-calculate-event-roi',
+  '/blog/event-budget-breakdown',
+  '/blog/event-ticket-pricing-strategy',
+  '/blog/event-break-even-analysis',
+  '/blog/event-staffing-guide',
 ];
 
 export function GET() {
