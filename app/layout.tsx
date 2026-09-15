@@ -24,6 +24,7 @@ export const metadata: Metadata = {
   icons: { icon: '/favicon.png', shortcut: '/favicon.png', apple: '/favicon.png' },
   openGraph: { title: siteTitle, description: siteDescription, url: siteUrl, siteName: 'Toolbox.Events', locale: 'en_US', type: 'website', images: [{ url: '/logo.png', width: 96, height: 72, alt: 'Toolbox.Events logo' }] },
   twitter: { card: 'summary_large_image', title: siteTitle, description: siteDescription, images: ['/logo.png'] },
+  verification: { google: '5A84C0gweZo3zHX_Kz_WKQGT-J_pYMl-U7Lu9dlCbkc' },
 };
 
 const organizationSchema = { '@context': 'https://schema.org', '@type': 'Organization', name: 'Toolbox.Events', url: siteUrl, logo: `${siteUrl}/logo.png` };
