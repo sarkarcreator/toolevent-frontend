@@ -2,7 +2,8 @@ import type { Metadata } from 'next';
 
 const siteUrl = 'https://toolbox.events';
 
-const toolSeo: Record<string, { title: string; description: string; canonical: string }> = {
+type ToolSeo = { title: string; description: string; canonical: string };
+const toolSeo: Record<string, ToolSeo> = {
   'budget-calculator': { title: 'Event Budget Calculator', description: 'Build a realistic event budget with venue, catering, production, staffing and contingency costs.', canonical: '/tools/budget-calculator' },
   'profit-calculator': { title: 'Event Profit Margin Calculator', description: 'Calculate event revenue, costs and profit margin so you can plan pricing with confidence.', canonical: '/tools/profit-calculator' },
   'ticket-pricing': { title: 'Event Ticket Pricing Calculator', description: 'Calculate ticket prices, revenue and margins for event ticket tiers including early bird, general admission and VIP.', canonical: '/tools/ticket-pricing' },
@@ -28,6 +29,16 @@ export async function generateMetadata({ params }: { params: Promise<{ type: str
   };
 }
 
-export default function ToolTypeLayout({ children }: { children: React.ReactNode }) {
-  return children;
+export async function generateMetadataWithSchema({ params }: { params: Promise<{ type: string }> }): Promise<Metadata> {
+  return generateMetadata({ params });
+}
+
+export default async function ToolTypeLayout({ children, params }: { children: React.ReactNode; params: Promise<{ type: string }> }) {
+  const { type } = await params;
+  const seo = toolSeo[type];
+  if (!seo) return children;
+  const url = `${siteUrl}${seo.canonical}`;
+  const webAppSchema = { '@context': 'https://schema.org', '@type': 'WebApplication', name: seo.title, url, description: seo.description, applicationCategory: 'BusinessApplication', operatingSystem: 'Web', isAccessibleForFree: true, publisher: { '@type': 'Organization', name: 'Toolbox.Events', url: siteUrl } };
+  const breadcrumbSchema = { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [{ '@type': 'ListItem', position: 1, name: 'Home', item: siteUrl }, { '@type': 'ListItem', position: 2, name: 'Event Tools', item: `${siteUrl}/tools` }, { '@type': 'ListItem', position: 3, name: seo.title, item: url }] };
+  return <><script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(webAppSchema) }} /><script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />{children}</>;
 }
