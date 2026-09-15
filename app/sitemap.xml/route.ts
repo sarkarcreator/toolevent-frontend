@@ -6,6 +6,7 @@ const publicRoutes = [
   '/ai-planner',
   '/templates',
   '/resources',
+  '/methodology',
   '/blog',
   '/about',
   '/contact',
