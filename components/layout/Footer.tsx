@@ -31,7 +31,7 @@ export function Footer() {
   const linkClass = 'text-sm text-white/55 transition-colors hover:text-white';
 
   return (
-    <footer className="mt-20 overflow-hidden bg-[#15171b] text-white">
+    <footer className="site-footer mt-20 overflow-hidden bg-[#15171b] text-white">
       <div className="mx-auto max-w-[1400px] px-4 sm:px-6 lg:px-8">
         <div className="relative border-b border-white/10 py-14 sm:py-16 lg:py-20">
           <div className="pointer-events-none absolute -right-24 -top-32 h-72 w-72 rounded-full bg-[#ff5a36]/10 blur-3xl" />
