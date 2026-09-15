@@ -90,6 +90,34 @@ export default function ToolsCatalogPage() {
           <Link href="/ai-planner" className="inline-flex shrink-0 items-center justify-center gap-2 rounded-full bg-[#17191f] px-5 py-3 text-sm font-bold text-white transition hover:-translate-y-0.5 hover:bg-[#2b2f38]">Open AI Planner <ArrowRight className="h-4 w-4" /></Link>
         </div>
       </section>
+
+      <section className="rounded-[24px] border border-[#e7e9ee] bg-[#f7f8fa] p-6 sm:p-8">
+        <div className="flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
+          <div>
+            <p className="text-xs font-bold uppercase tracking-[.12em] text-[#ff5a36]">PLANNING GUIDES</p>
+            <h2 className="mt-2 text-2xl font-bold tracking-[-.04em] sm:text-3xl">Go deeper before you calculate</h2>
+            <p className="mt-2 max-w-2xl text-sm leading-6 text-[#667085]">Practical guides explain the decision behind the number, then point you to the right calculator.</p>
+          </div>
+          <Link href="/blog" className="inline-flex items-center gap-1 text-sm font-bold text-[#17191f] hover:text-[#ff5a36]">Browse the journal <ArrowRight className="h-4 w-4" /></Link>
+        </div>
+        <div className="mt-6 grid gap-3 md:grid-cols-3">
+          <Link href="/blog/how-to-create-an-event-budget" className="rounded-2xl bg-white p-5 transition hover:-translate-y-0.5 hover:shadow-sm">
+            <h3 className="font-bold">Build an event budget</h3>
+            <p className="mt-2 text-sm leading-6 text-[#667085]">Understand the major cost categories and use the Event Budget Calculator with a clearer plan.</p>
+            <span className="mt-4 inline-flex items-center gap-1 text-sm font-bold">Read guide <ArrowRight className="h-4 w-4" /></span>
+          </Link>
+          <Link href="/blog/how-much-should-i-charge-for-event-tickets" className="rounded-2xl bg-white p-5 transition hover:-translate-y-0.5 hover:shadow-sm">
+            <h3 className="font-bold">Set event ticket prices</h3>
+            <p className="mt-2 text-sm leading-6 text-[#667085]">Work through costs and margins before using the Ticket Pricing & Tier Optimizer.</p>
+            <span className="mt-4 inline-flex items-center gap-1 text-sm font-bold">Read guide <ArrowRight className="h-4 w-4" /></span>
+          </Link>
+          <Link href="/blog/how-to-calculate-event-roi" className="rounded-2xl bg-white p-5 transition hover:-translate-y-0.5 hover:shadow-sm">
+            <h3 className="font-bold">Measure event ROI</h3>
+            <p className="mt-2 text-sm leading-6 text-[#667085]">Learn what to measure, then use the Corporate Event ROI Calculator to model the return.</p>
+            <span className="mt-4 inline-flex items-center gap-1 text-sm font-bold">Read guide <ArrowRight className="h-4 w-4" /></span>
+          </Link>
+        </div>
+      </section>
     </div>
   );
 }
