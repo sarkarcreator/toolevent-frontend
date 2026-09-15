@@ -29,8 +29,33 @@ export const metadata: Metadata = {
   verification: { google: '5A84C0gweZo3zHX_Kz_WKQGT-J_pYMl-U7Lu9dlCbkc' },
 };
 
-const organizationSchema = { '@context': 'https://schema.org', '@type': 'Organization', name: 'Toolbox.Events', url: siteUrl, logo: `${siteUrl}/logo.png` };
-const websiteSchema = { '@context': 'https://schema.org', '@type': 'WebSite', name: 'Toolbox.Events', url: siteUrl, description: siteDescription };
+const organizationSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: 'Toolbox.Events',
+  url: siteUrl,
+  logo: `${siteUrl}/logo.png`,
+  sameAs: ['https://github.com/sarkarcreator/toolevent-frontend'],
+};
+
+const websiteSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: 'Toolbox.Events',
+  url: siteUrl,
+  description: siteDescription,
+};
+
+const applicationSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebApplication',
+  name: 'Toolbox.Events',
+  url: siteUrl,
+  description: siteDescription,
+  applicationCategory: 'BusinessApplication',
+  operatingSystem: 'Web',
+  offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
+};
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -47,6 +72,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         </Script>
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }} />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }} />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(applicationSchema) }} />
         <MarketProvider>
           <AuthProvider>
             <Navbar />
