@@ -80,6 +80,7 @@ export default function ResourcesPage() {
         <div className="mt-8 flex flex-wrap gap-3">
           <Link href="/tools" className="rounded-full bg-[#17191f] px-5 py-3 text-sm font-bold text-white">Explore all calculators</Link>
           <Link href="/ai-planner" className="rounded-full border border-[#dfe2e8] px-5 py-3 text-sm font-bold text-[#17191f]">Open AI Planner</Link>
+          <Link href="/methodology" className="rounded-full border border-[#dfe2e8] px-5 py-3 text-sm font-bold text-[#17191f]">Calculator methodology</Link>
         </div>
       </section>
 
