@@ -45,7 +45,7 @@ const calculatorGroups = [
     links: [
       ['Wedding Budget Calculator', '/tools/wedding-budget'],
       ['Dubai Wedding Budget Calculator', '/tools/dubai-wedding'],
-      ['Dubai Event Budget Calculator', '/tools/dubai-wedding'],
+      ['Dubai Event Budget Calculator', '/dubai/event-budget-calculator'],
     ],
   },
 ];
