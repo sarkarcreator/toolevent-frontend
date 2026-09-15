@@ -39,8 +39,8 @@ export default function HomePage() {
   return (
     <div className="space-y-20 pb-16 sm:space-y-28">
       <section className="relative overflow-hidden rounded-[32px] bg-[#17191f] px-6 py-12 text-white sm:px-10 sm:py-16 lg:px-16 lg:py-20">
-        <div className="pointer-events-none absolute -right-24 -top-32 h-80 w-80 rounded-full bg-[#ff5a36]/25 blur-3xl" />
-        <div className="pointer-events-none absolute -bottom-40 left-1/3 h-96 w-96 rounded-full bg-[#3867ff]/20 blur-3xl" />
+        <div className="mobile-home-glow pointer-events-none absolute -right-24 -top-32 h-80 w-80 rounded-full bg-[#ff5a36]/25 blur-3xl" />
+        <div className="mobile-home-glow pointer-events-none absolute -bottom-40 left-1/3 h-96 w-96 rounded-full bg-[#3867ff]/20 blur-3xl" />
         <div className="relative grid items-center gap-12 lg:grid-cols-[1.15fr_.85fr]">
           <div>
             <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/8 px-3 py-1.5 text-sm text-white/80">
@@ -96,7 +96,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section>
+      <section className="mobile-home-defer">
         <div className="flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
           <div>
             <p className="text-sm font-bold text-[#ff5a36]">THE TOOLKIT</p>
@@ -122,7 +122,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="grid gap-5 lg:grid-cols-[1.2fr_.8fr]">
+      <section className="mobile-home-defer grid gap-5 lg:grid-cols-[1.2fr_.8fr]">
         <div className="rounded-[28px] bg-[#eef2ff] p-7 sm:p-9">
           <div className="inline-flex rounded-full bg-white px-3 py-1.5 text-xs font-bold text-[#3867ff]">AI PLANNER</div>
           <h2 className="mt-5 max-w-xl text-3xl font-bold tracking-[-.045em] sm:text-4xl">Tell us what you&apos;re planning. Get the roadmap.</h2>
@@ -138,7 +138,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section>
+      <section className="mobile-home-defer">
         <div className="flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
           <div>
             <p className="text-sm font-bold text-[#ff5a36]">PLANNING GUIDES</p>
@@ -159,7 +159,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="rounded-[28px] bg-white p-7 text-center shadow-[0_8px_35px_rgba(23,25,31,.05)] sm:p-10">
+      <section className="mobile-home-defer rounded-[28px] bg-white p-7 text-center shadow-[0_8px_35px_rgba(23,25,31,.05)] sm:p-10">
         <p className="text-sm font-bold text-[#667085]">ONE SIMPLE WORKFLOW</p>
         <div className="mx-auto mt-7 flex max-w-4xl flex-wrap items-center justify-center gap-2 text-sm font-semibold text-[#17191f] sm:gap-3">
           {['AI Planner', 'Budget', 'Guests', 'Catering', 'Staffing', 'Checklist'].map((step, index) => <div key={step} className="flex items-center gap-2"><span className="rounded-full bg-[#f3f4f7] px-4 py-2.5">{step}</span>{index < 5 && <ArrowRight className="hidden h-4 w-4 text-[#98a2b3] sm:block" />}</div>)}
