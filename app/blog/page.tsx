@@ -1,6 +1,8 @@
+import type { Metadata } from 'next';
 import Link from 'next/link';
 import { ArrowRight, BookOpen, Sparkles } from 'lucide-react';
 
+const siteUrl = 'https://toolbox.events';
 const posts = [
   { slug: 'how-to-create-an-event-budget', category: 'Budgeting', title: 'How to Create a Rock-Solid Event Budget (With Free Formulas & Checklist)', excerpt: 'A step-by-step masterclass in allocating venue, catering, AV production, and contingency funds without nasty surprise costs.', readTime: '6 min read' },
   { slug: 'how-much-should-i-charge-for-event-tickets', category: 'Ticketing & Profit', title: 'How Much Should You Charge for Event Tickets? The Complete Pricing Strategy', excerpt: 'Learn the mathematical formula to price your event tickets, cover all fixed fees, and guarantee your desired profit margin.', readTime: '5 min read' },
@@ -8,11 +10,19 @@ const posts = [
   { slug: 'how-to-calculate-event-roi', category: 'Analytics', title: 'How to Calculate Event ROI & Prove Business Value to Executives', excerpt: 'Turn fuzzy event metrics into hard revenue, pipeline attribution, and cost-per-lead statistics that your CFO will love.', readTime: '6 min read' },
 ];
 
-export const metadata = { title: 'Event Planning Blog' };
+export const metadata: Metadata = {
+  title: 'Event Planning Blog & Guides',
+  description: 'Practical event planning guides covering budgets, ticket pricing, weddings, event ROI, operations and smarter planning decisions.',
+  alternates: { canonical: `${siteUrl}/blog` },
+  openGraph: { title: 'Event Planning Blog & Guides | Toolbox.Events', description: 'Practical guides for event budgets, ticket pricing, weddings, ROI and event operations.', url: `${siteUrl}/blog`, type: 'website' },
+};
+
+const blogSchema = { '@context': 'https://schema.org', '@type': 'Blog', name: 'Toolbox.Events Journal', url: `${siteUrl}/blog`, description: 'Practical guides for event budgets, ticket pricing, weddings, ROI and event operations.', publisher: { '@type': 'Organization', name: 'Toolbox.Events', url: siteUrl } };
 
 export default function BlogPage() {
   return (
     <div className="space-y-10 pb-10">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(blogSchema) }} />
       <section className="relative overflow-hidden rounded-[32px] bg-[#17191f] px-6 py-12 text-white sm:px-10 lg:px-14 lg:py-16">
         <div className="pointer-events-none absolute -right-24 -top-24 h-72 w-72 rounded-full bg-[#ff5a36]/20 blur-3xl" />
         <div className="relative max-w-3xl">
@@ -21,7 +31,6 @@ export default function BlogPage() {
           <p className="mt-5 max-w-2xl text-sm leading-7 text-white/65 sm:text-base">Practical guides for event budgets, ticket pricing, weddings, ROI, operations and the decisions that make events work.</p>
         </div>
       </section>
-
       <div className="grid gap-5 md:grid-cols-2">
         {posts.map((post, index) => (
           <article key={post.slug} className={`group rounded-[26px] border bg-white p-6 shadow-[0_12px_40px_rgba(23,25,31,.05)] transition hover:-translate-y-1 hover:shadow-[0_22px_55px_rgba(23,25,31,.10)] ${index === 0 ? 'border-[#ffb7a8]' : 'border-[#e7e9ee]'}`}>
@@ -32,7 +41,6 @@ export default function BlogPage() {
           </article>
         ))}
       </div>
-
       <section className="rounded-[26px] border border-[#e7e9ee] bg-white p-7 sm:p-9">
         <div className="flex flex-col gap-5 sm:flex-row sm:items-center sm:justify-between"><div><p className="text-xs font-bold uppercase tracking-[0.14em] text-[#ff5a36]">Plan with the articles</p><h2 className="mt-1 text-2xl font-bold tracking-[-0.04em]">Turn advice into an actual event plan.</h2></div><Link href="/ai-planner" className="inline-flex items-center justify-center gap-2 rounded-full bg-[#17191f] px-5 py-3 text-sm font-bold text-white hover:bg-[#ff5a36]"><Sparkles className="h-4 w-4" />Start with AI</Link></div>
       </section>
