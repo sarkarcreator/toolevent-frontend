@@ -33,8 +33,17 @@ const organizationSchema = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
   name: 'Toolbox.Events',
+  alternateName: 'Toolbox Events',
   url: siteUrl,
   logo: `${siteUrl}/logo.png`,
+  email: 'hello@toolbox.events',
+  contactPoint: {
+    '@type': 'ContactPoint',
+    email: 'hello@toolbox.events',
+    contactType: 'customer support',
+    availableLanguage: ['English'],
+  },
+  areaServed: ['US', 'AE', 'GB'],
   sameAs: ['https://github.com/sarkarcreator/toolevent-frontend'],
 };
 
