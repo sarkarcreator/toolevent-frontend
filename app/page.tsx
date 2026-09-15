@@ -26,6 +26,12 @@ const tools = [
   { title: 'Checklist', description: 'Turn your event into a clear action plan.', href: '/tools/checklist', icon: CheckCircle2, tone: 'pink' },
 ];
 
+const guides = [
+  { title: 'How to create an event budget', description: 'A practical framework for organizing costs before you commit.', href: '/blog/how-to-create-an-event-budget' },
+  { title: 'How much should I charge for event tickets?', description: 'Work through costs, margins and ticket tiers with a clear method.', href: '/blog/how-much-should-i-charge-for-event-tickets' },
+  { title: 'How to calculate event ROI', description: 'Understand revenue, pipeline value and the return on your event spend.', href: '/blog/how-to-calculate-event-roi' },
+];
+
 export default function HomePage() {
   const { country, currency } = useMarket();
   const { user, openAuthModal } = useAuth();
@@ -129,6 +135,27 @@ export default function HomePage() {
             {['Budget before you commit', 'Price with confidence', 'Know your staffing needs', 'Keep every task visible'].map((item) => <div key={item} className="flex items-center gap-3 text-sm font-semibold"><CheckCircle2 className="h-5 w-5 text-[#18a66a]" />{item}</div>)}
           </div>
           {!user && <button onClick={() => openAuthModal('register')} className="mt-7 w-full rounded-full border border-[#e7e9ee] px-5 py-3 text-sm font-bold transition hover:border-[#17191f]">Create a free account</button>}
+        </div>
+      </section>
+
+      <section>
+        <div className="flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
+          <div>
+            <p className="text-sm font-bold text-[#ff5a36]">PLANNING GUIDES</p>
+            <h2 className="mt-2 text-3xl font-bold tracking-[-.04em] sm:text-4xl">Useful guidance before you make the call</h2>
+            <p className="mt-3 max-w-2xl text-[#667085]">Learn the planning method, then use the calculators to put it into practice.</p>
+          </div>
+          <Link href="/blog" className="inline-flex items-center gap-1 text-sm font-bold text-[#17191f] hover:text-[#ff5a36]">Read all guides <ArrowRight className="h-4 w-4" /></Link>
+        </div>
+        <div className="mt-8 grid gap-4 lg:grid-cols-3">
+          {guides.map((guide) => (
+            <Link key={guide.href} href={guide.href} className="group rounded-[24px] border border-[#e7e9ee] bg-white p-6 transition hover:-translate-y-1 hover:border-[#d9dce4] hover:shadow-[0_18px_45px_rgba(23,25,31,.08)]">
+              <p className="text-xs font-bold uppercase tracking-[.12em] text-[#98a2b3]">Toolbox.Events Journal</p>
+              <h3 className="mt-4 text-lg font-bold tracking-tight group-hover:text-[#ff5a36]">{guide.title}</h3>
+              <p className="mt-2 text-sm leading-6 text-[#667085]">{guide.description}</p>
+              <span className="mt-5 inline-flex items-center gap-2 text-sm font-bold text-[#17191f]">Read guide <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1 group-hover:text-[#ff5a36]" /></span>
+            </Link>
+          ))}
         </div>
       </section>
 
