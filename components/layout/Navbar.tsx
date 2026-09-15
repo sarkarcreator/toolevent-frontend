@@ -29,7 +29,7 @@ export function Navbar() {
   const closeMenus = () => { setMobileMenuOpen(false); setMarketDropdownOpen(false); setUserDropdownOpen(false); };
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-[#e7e9ee] bg-[#f7f8fa]/90 backdrop-blur-xl">
+    <header className="site-navbar sticky top-0 z-50 w-full border-b border-[#e7e9ee] bg-[#f7f8fa]/90 backdrop-blur-xl">
       <div className="mx-auto max-w-[1400px] px-4 sm:px-6 lg:px-8">
         <div className="flex h-[72px] items-center justify-between gap-4">
           <Link href="/" onClick={closeMenus} className="group flex shrink-0 items-center gap-2.5">
