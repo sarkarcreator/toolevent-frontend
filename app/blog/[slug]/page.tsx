@@ -1,7 +1,11 @@
+import type { Metadata } from 'next';
 import Link from 'next/link';
 import { ArrowLeft, ArrowRight } from 'lucide-react';
 
-const posts: Record<string, { category: string; title: string; excerpt: string; readTime: string; sections: { heading: string; body: string }[] }> = {
+const siteUrl = 'https://toolbox.events';
+type Post = { category: string; title: string; excerpt: string; readTime: string; sections: { heading: string; body: string }[] };
+
+const posts: Record<string, Post> = {
   'how-to-create-an-event-budget': {
     category: 'Budgeting', title: 'How to Create a Rock-Solid Event Budget (With Free Formulas & Checklist)', excerpt: 'Allocate venue, catering, production, marketing, staffing and contingency costs before surprises appear.', readTime: '6 min read', sections: [
       { heading: 'Start with seven core categories', body: 'Group your event spend into venue, catering and beverage, production and AV, decor and signage, marketing and invitations, staffing and logistics, and a contingency reserve. A clear category structure makes vendor quotes easier to compare.' },
@@ -34,13 +38,32 @@ const posts: Record<string, { category: string; title: string; excerpt: string; 
 
 export function generateStaticParams() { return Object.keys(posts).map((slug) => ({ slug })); }
 
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+  const { slug } = await params;
+  const post = posts[slug];
+  if (!post) return { title: 'Article Not Found', robots: { index: false, follow: false } };
+  const url = `${siteUrl}/blog/${slug}`;
+  return {
+    title: post.title,
+    description: post.excerpt,
+    alternates: { canonical: url },
+    openGraph: { title: `${post.title} | Toolbox.Events`, description: post.excerpt, url, type: 'article', siteName: 'Toolbox.Events' },
+  };
+}
+
 export default async function BlogPostPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   const post = posts[slug];
   if (!post) return <div className="py-20 text-center"><h1 className="text-3xl font-bold">Article not found</h1><Link href="/blog" className="mt-5 inline-flex text-sm font-bold text-[#ff5a36]">Back to blog</Link></div>;
 
+  const url = `${siteUrl}/blog/${slug}`;
+  const articleSchema = { '@context': 'https://schema.org', '@type': 'Article', headline: post.title, description: post.excerpt, mainEntityOfPage: { '@type': 'WebPage', '@id': url }, author: { '@type': 'Organization', name: 'Toolbox.Events', url: siteUrl }, publisher: { '@type': 'Organization', name: 'Toolbox.Events', url: siteUrl, logo: { '@type': 'ImageObject', url: `${siteUrl}/logo.png` } }, articleSection: post.category, isPartOf: { '@type': 'Blog', name: 'Toolbox.Events Journal', url: `${siteUrl}/blog` } };
+  const breadcrumbSchema = { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [{ '@type': 'ListItem', position: 1, name: 'Home', item: siteUrl }, { '@type': 'ListItem', position: 2, name: 'Blog', item: `${siteUrl}/blog` }, { '@type': 'ListItem', position: 3, name: post.title, item: url }] };
+
   return (
     <article className="mx-auto max-w-4xl pb-12">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <Link href="/blog" className="inline-flex items-center gap-2 text-sm font-semibold text-[#667085] hover:text-[#17191f]"><ArrowLeft className="h-4 w-4" />Back to journal</Link>
       <header className="mt-8 rounded-[30px] bg-[#17191f] p-7 text-white sm:p-10 lg:p-14"><span className="rounded-full bg-[#ff5a36]/15 px-3 py-1.5 text-xs font-bold text-[#ff8b70]">{post.category}</span><h1 className="mt-6 text-4xl font-bold leading-[1.02] tracking-[-0.055em] sm:text-6xl">{post.title}</h1><p className="mt-5 max-w-2xl text-base leading-7 text-white/65">{post.excerpt}</p><p className="mt-6 text-xs font-semibold text-white/40">{post.readTime} · Toolbox.Events Journal</p></header>
       <div className="mx-auto max-w-3xl py-10 sm:py-14">
