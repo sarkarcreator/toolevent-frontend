@@ -4,6 +4,10 @@ import { ArrowRight, BookOpen, Sparkles } from 'lucide-react';
 
 const siteUrl = 'https://toolbox.events';
 const posts = [
+  { slug: 'event-budget-breakdown', category: 'Budgeting', title: 'Event Budget Breakdown: How to Allocate Costs by Category', excerpt: 'A practical breakdown of venue, catering, production, staffing, marketing, technology, materials and contingency costs.', readTime: '8 min read' },
+  { slug: 'event-ticket-pricing-strategy', category: 'Ticketing & Profit', title: 'How to Price Event Tickets: Costs, Capacity, Margin and Ticket Tiers', excerpt: 'Build a defensible ticket pricing strategy from real costs, realistic attendance and the margin you need.', readTime: '8 min read' },
+  { slug: 'event-break-even-analysis', category: 'Budgeting & Profit', title: 'How to Calculate Event Break-Even Point: Attendance, Ticket Price and Costs', excerpt: 'Find the paid attendance or ticket economics your event needs to cover costs before profit begins.', readTime: '8 min read' },
+  { slug: 'event-staffing-guide', category: 'Operations', title: 'How Many Staff Do You Need for an Event? A Practical Staffing Guide', excerpt: 'Plan staffing around guest flow, venue layout, service complexity and peak workload—not headcount alone.', readTime: '8 min read' },
   { slug: 'how-to-create-an-event-budget', category: 'Budgeting', title: 'How to Create a Rock-Solid Event Budget (With Free Formulas & Checklist)', excerpt: 'A step-by-step masterclass in allocating venue, catering, AV production, and contingency funds without nasty surprise costs.', readTime: '6 min read' },
   { slug: 'how-much-should-i-charge-for-event-tickets', category: 'Ticketing & Profit', title: 'How Much Should You Charge for Event Tickets? The Complete Pricing Strategy', excerpt: 'Learn the mathematical formula to price your event tickets, cover all fixed fees, and guarantee your desired profit margin.', readTime: '5 min read' },
   { slug: 'dubai-wedding-budget-guide', category: 'Weddings', title: 'Dubai Wedding Budget Guide 2026: Realistic Costs in AED & Luxury Planning', excerpt: 'Everything you need to know about wedding venue fees, luxury floral arrangements, municipality taxes, and catering rates across the UAE.', readTime: '7 min read' },
@@ -12,17 +16,18 @@ const posts = [
 
 export const metadata: Metadata = {
   title: 'Event Planning Blog & Guides',
-  description: 'Practical event planning guides covering budgets, ticket pricing, weddings, event ROI, operations and smarter planning decisions.',
+  description: 'Practical event planning guides covering budgets, ticket pricing, break-even analysis, staffing, weddings, event ROI, operations and smarter planning decisions.',
   alternates: { canonical: `${siteUrl}/blog` },
-  openGraph: { title: 'Event Planning Blog & Guides | Toolbox.Events', description: 'Practical guides for event budgets, ticket pricing, weddings, ROI and event operations.', url: `${siteUrl}/blog`, type: 'website' },
+  openGraph: { title: 'Event Planning Blog & Guides | Toolbox.Events', description: 'Practical guides for event budgets, ticket pricing, break-even, staffing, weddings, ROI and event operations.', url: `${siteUrl}/blog`, type: 'website' },
 };
 
-const blogSchema = { '@context': 'https://schema.org', '@type': 'Blog', name: 'Toolbox.Events Journal', url: `${siteUrl}/blog`, description: 'Practical guides for event budgets, ticket pricing, weddings, ROI and event operations.', publisher: { '@type': 'Organization', name: 'Toolbox.Events', url: siteUrl } };
+const blogSchema = { '@context': 'https://schema.org', '@type': 'Blog', name: 'Toolbox.Events Journal', url: `${siteUrl}/blog`, description: 'Practical guides for event budgets, ticket pricing, break-even analysis, staffing, weddings, ROI and event operations.', publisher: { '@type': 'Organization', name: 'Toolbox.Events', url: siteUrl } };
 
 const toolLinks = [
   { href: '/tools/budget-calculator', label: 'Event Budget Calculator', text: 'Build an event budget with the free calculator' },
   { href: '/tools/ticket-pricing', label: 'Ticket Pricing Calculator', text: 'Estimate a profitable ticket price' },
   { href: '/tools/break-even', label: 'Event Break-Even Calculator', text: 'Find the attendance or sales point where costs are covered' },
+  { href: '/tools/staffing', label: 'Event Staffing Calculator', text: 'Model staffing needs around your event size and roles' },
   { href: '/tools/event-roi', label: 'Event ROI Calculator', text: 'Measure event return and business value' },
 ];
 
@@ -35,7 +40,7 @@ export default function BlogPage() {
         <div className="relative max-w-3xl">
           <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.06] px-3 py-1.5 text-xs font-semibold text-white/75"><BookOpen className="h-4 w-4 text-[#ff8b70]" /> Toolbox.Events Journal</span>
           <h1 className="mt-5 text-4xl font-bold tracking-[-0.055em] sm:text-6xl">Better event decisions, one insight at a time.</h1>
-          <p className="mt-5 max-w-2xl text-sm leading-7 text-white/65 sm:text-base">Practical guides for event budgets, ticket pricing, weddings, ROI, operations and the decisions that make events work.</p>
+          <p className="mt-5 max-w-2xl text-sm leading-7 text-white/65 sm:text-base">Practical guides for event budgets, ticket pricing, break-even analysis, staffing, weddings, ROI, operations and the decisions that make events work.</p>
         </div>
       </section>
       <div className="grid gap-5 md:grid-cols-2">
